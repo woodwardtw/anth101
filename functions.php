@@ -14,7 +14,7 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array());
     wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/child-theme.min.js', array(), '0.1.0', true );
-    wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/video-resize.js', array(), '0.1.0', true );
+    //wp_enqueue_script( 'child-understrap-video', get_stylesheet_directory_uri() . '/js/video-resize.js', array(), '0.1.0', true );
 
 }
 
@@ -419,26 +419,13 @@ function my_admin_bar_render() {
 add_action( 'wp_before_admin_bar_render', 'my_admin_bar_render' );
 
 
-//TOOL BAR HOME
-add_action( 'admin_bar_menu', 'toolbar_link_to_home', 949 );
-
-function toolbar_link_to_home( $wp_admin_bar ) {
-	$args = array(
-		'id'    => 'my_home',
-		'title' => '<i class="fa fa-home fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">ANTH101</div>',
-		'href'  => '/wp-admin/',
-		'meta'  => array( 'class' => 'my-toolbar-icon' )
-	);
-	$wp_admin_bar->add_node( $args );
-}
-
 //TOOL BAR NEW
 add_action( 'admin_bar_menu', 'toolbar_link_to_new', 949 );
 
 function toolbar_link_to_new( $wp_admin_bar ) {
 	$args = array(
 		'id'    => 'my_new',
-		'title' => '<i class="fa fa-plus fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">New Challenge</div>',
+		'title' => '<i class="fa fa-plus fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">Accept a Challenge</div>',
 		'href'  => '/wp-admin/post-new.php',
 		'meta'  => array( 'class' => 'my-toolbar-icon' )
 	);
@@ -487,19 +474,234 @@ function toolbar_link_to_recent( $wp_admin_bar ) {
 	$wp_admin_bar->add_node( $args );
 }
 
-//TOOL BAR CHALLENGE
-add_action( 'admin_bar_menu', 'toolbar_link_to_challenge', 989 );
+ //TOOL BAR LESSON
+ add_action( 'admin_bar_menu', 'add_top_link_to_admin_bar',999 );
+ 
+function add_top_link_to_admin_bar($admin_bar) {
+         // add a parent item
+            $args = array(
+                'id'    => 'the_lesson',
+				'title' => '<i class="fa fa-book fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">Lessons</div>',
+                'href'   => '#', // Showing how to add an external link
+                'meta'  => array( 'class' => 'my-toolbar-icon' )
+            );
+            $admin_bar->add_node( $args );
+             
+         // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_lesson',
+                'id'     => 'different',
+                'title'  => 'People are Different',
+                'href'   => 'http://anth101.com/lessons/lessons1/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );
+             
+         // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_lesson',
+                'id'     => 'question',
+                'title'  => 'New Questions',
+                'href'   => 'http://anth101.com/lessons/lessons2/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );     
 
-function toolbar_link_to_challenge( $wp_admin_bar ) {
-	$args = array(
-		'id'    => 'my_challenge',
-		'title' => '<i class="fa fa-grav fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">Challenges</div>',
-		'href'  => '#',
-		'meta'  => array( 'class' => 'my-toolbar-icon' )
-	);
-	$wp_admin_bar->add_node( $args );
+         // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_lesson',
+                'id'     => 'human',
+                'title'  => 'Being Human',
+                'href'   => 'http://anth101.com/lessons/lesson3/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );  
+
+          // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_lesson',
+                'id'     => 'assumptions',
+                'title'  => 'Hidden Assumptions',
+                'href'   => 'http://anth101.com/lessons/lessons4/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );  
+
+           // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_lesson',
+                'id'     => 'tools',
+                'title'  => 'Making & Living',
+                'href'   => 'http://anth101.com/lessons/lesson5/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );   
+
+           
+           // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_lesson',
+                'id'     => 'reality',
+                'title'  => '"Reality"',
+                'href'   => 'http://anth101.com/lessons/lesson6/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );  
+
+             // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_lesson',
+                'id'     => 'hate',
+                'title'  => 'Why We Hate',
+                'href'   => 'http://anth101.com/lessons/lesson7/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );    
+
+             // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_lesson',
+                'id'     => 'tragedy',
+                'title'  => 'Tragedy of Our Times',
+                'href'   => 'http://anth101.com/lessons/lesson8/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );   
+
+             $args = array(
+                'parent' => 'the_lesson',
+                'id'     => 'hero',
+                'title'  => 'Becoming a Hero',
+                'href'   => 'http://anth101.com/lessons/lesson9/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );  
+
+             $args = array(
+                'parent' => 'the_lesson',
+                'id'     => 'we',
+                'title'  => 'We Make the World',
+                'href'   => 'http://anth101.com/lessons/lesson10/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );  
+                                   
 }
 
+
+//TOOL BAR - CHALLENGES
+add_action( 'admin_bar_menu', 'add_challenge_link_to_admin_bar',999 );
+ 
+function add_challenge_link_to_admin_bar($admin_bar) {
+         // add a parent item
+            $args = array(
+                'id'    => 'the_challenge',
+				'title' => '<i class="fa fa-grav fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">Challenges</div>',
+                'href'   => '#', // Showing how to add an external link
+                'meta'  => array( 'class' => 'my-toolbar-icon' )
+            );
+            $admin_bar->add_node( $args );
+             
+         // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_challenge',
+                'id'     => 'stranger',
+                'title'  => 'Talk to Strangers',
+                'href'   => 'http://anth101.com/challenges/challenge1/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );
+             
+         // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_challenge',
+                'id'     => 'fieldwork',
+                'title'  => 'Fieldwork of the Familiar',
+                'href'   => 'http://anth101.com/challenges/challenge2/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );     
+
+         // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_challenge',
+                'id'     => 'days',
+                'title'  => '28 Day Challenge',
+                'href'   => 'http://anth101.com/challenges/challenge3/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );  
+
+          // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_challenge',
+                'id'     => 'uncomfort',
+                'title'  => 'Get Uncomfortable',
+                'href'   => 'http://anth101.com/challenges/challenge4/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );  
+
+           // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_challenge',
+                'id'     => 'unthing',
+                'title'  => 'UnThing Experiment',
+                'href'   => 'http://anth101.com/challenges/challenge5/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );   
+
+           
+           // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_challenge',
+                'id'     => 'realization',
+                'title'  => 'Realize a Real-ization',
+                'href'   => 'http://anth101.com/challenges/challenge6/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );  
+
+             // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_challenge',
+                'id'     => 'other',
+                'title'  => 'Other Encounter',
+                'href'   => 'http://anth101.com/challenges/challenge7/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );    
+
+             // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_challenge',
+                'id'     => 'hustuff',
+                'title'  => 'Humans of My Stuff',
+                'href'   => 'http://anth101.com/challenges/challenge8/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );   
+
+             $args = array(
+                'parent' => 'the_challenge',
+                'id'     => 'uhero',
+                'title'  => 'Your Hero Story',
+                'href'   => 'http://anth101.com/challenges/challenge9/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );  
+
+             $args = array(
+                'parent' => 'the_challenge',
+                'id'     => 'manifesto',
+                'title'  => 'Manifesto',
+                'href'   => 'http://anth101.com/challenges/challenge10/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );  
+                                   
+}
 
 
 //TOOL BAR - Prevent mobile hiding
@@ -515,7 +717,7 @@ function show_custom_admin_menu() {
       	margin-left: 8px !important;
       	margin-right: 10px !important;
       }
-    @media only screen and (min-device-width : 368px) and (max-device-width : 1024px) {
+    @media only screen and (min-device-width : 300px) and (max-device-width : 1024px) {
 
 		#wpadminbar {
 		  position: fixed;

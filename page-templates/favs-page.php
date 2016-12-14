@@ -37,19 +37,26 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 				
+			<?php 
+				if ( is_user_logged_in() ) {
+					} else {
+					    echo '<h2>You will need to <a href="#">join up</a> to favorite things.</h2>';
+							}
+			 ?>	
 				<?php 
 				$the_favs = get_user_favorites($user_id = null, $site_id = null, $filters = null);
-				$fav_number = count($the_favs);
-				$i = 0;
+				$fav_number = count($the_favs);				
+				$i = 1;
 				echo '<div class="team-content"><div class="masonry">';
 
-				while ($i <= $fav_number-1) {
+				while ($i < $fav_number+1) {
 
 					$fav_id = $the_favs[$i];	
 					echo '<div class="item">';
 					echo '<a href="' . get_the_permalink($fav_id) . '"';
 					echo get_the_title($fav_id) . '<br>';
-					$fav_img = get_the_post_thumbnail($fav_id, 'large' );
+					$fav_img = get_the_post_thumbnail($fav_id, 'medium' );
+					$i++;
 					if ($fav_img){
 						echo $fav_img;
 					}
@@ -58,7 +65,6 @@ get_header(); ?>
 					}
 					
 					echo '</a></div>';
-					$i++;
 
 			     }
 			     echo '</div></div>';
