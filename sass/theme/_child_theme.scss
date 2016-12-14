@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed|Amatica+SC|Open+Sans');
+
+body {
+  font: 100% $font-stack;
+  background-color: $primary-color;
+}
+
+a {
+	color: $blue;
+}
+
+
+.wrapper {
+	padding: 120px 0;
+}
+
+.title-left{
+	float: left;
+	position: fixed;
+	z-index: 12000;
+	font-size: 2.3em;
+	color: #ffffff;
+	padding: 15px 20px;
+	background-color: $blue;
+	width: 250px;
+}
+
+.content-area {
+	max-width: 960px;
+}
+
+.brand {
+	display: inline-block;	
+}
+
+#brand-short {
+	font-size: 3em;
+	font-weight: 300;
+    font-family: $font-title;
+    vertical-align: text-top;
+    padding: 0;
+    line-height: .8;
+}
+
+.title-left a {
+	color: #fff;
+}
+
+#main-menu {
+	margin-left: 140px;
+	text-transform: uppercase;
+}
+
+
+#wrapper-navbar {
+	position: fixed;
+	width:100%;
+	z-index: 1000;
+}
+
+.navbar {
+	padding: 0 0 0 0 !important;
+	font-size: .7rem;
+	text-align: center;
+}
+
+#navbar-custom {
+	background-color: #e7e7e7;	
+	color: #424242;	
+	padding: 0;
+}
+
+#navbar-custom li{
+	border-right: 1px solid $lightgray;
+}
+
+#navbar-custom li a {
+	color: #424242;
+	padding: 18px;
+	display: table-cell;
+}
+
+#navbar-custom li a:hover{
+	color:#fff;
+}
+
+#sub-nav-right {
+	display:inline-block;
+	color: #fff;
+	width: 30%;
+	float:right;
+	background-color: rgba($red,.75);
+	padding: 7px 10px;	
+}
+
+#sub-nav-right a {
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.main-menu-right {
+	display: inline-block;
+	float: right;
+}
+
+/* buttons */
+
+button {
+  position: relative;
+  height: 45px;
+  width: 150px;
+  margin: 10px 7px;
+  padding: 5px 5px;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: $blue;
+  border: 2px #383736 solid;
+  border-radius: 4px;
+  text-transform: uppercase;
+  outline: 0;
+  overflow:hidden;
+  background: none;
+  z-index: 1;
+  cursor: pointer;
+  transition:         0.08s ease-in;
+  -o-transition:      0.08s ease-in;
+  -ms-transition:     0.08s ease-in;
+  -moz-transition:    0.08s ease-in;
+  -webkit-transition: 0.08s ease-in;
+}
+
+.fill:hover {
+  color: whitesmoke;
+}
+
+.fill:before {
+  content: "";
+  position: absolute;
+  background: #383736;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: -1;
+  -webkit-transition: top 0.09s ease-in;
+}
+
+.fill:hover:before {
+  top: 0;
+}
