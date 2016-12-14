@@ -491,8 +491,8 @@ function add_top_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_lesson',
                 'id'     => 'different',
-                'title'  => 'People are Different',
-                'href'   => 'http://anth101.com/lessons/lessons1/',
+                'title'  => '1. People are Different',
+                'href'   => 'http://anth101.com/lessons/lesson1/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );
@@ -501,8 +501,8 @@ function add_top_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_lesson',
                 'id'     => 'question',
-                'title'  => 'New Questions',
-                'href'   => 'http://anth101.com/lessons/lessons2/',
+                'title'  => '2. New Questions',
+                'href'   => 'http://anth101.com/lessons/lesson2/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );     
@@ -511,7 +511,7 @@ function add_top_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_lesson',
                 'id'     => 'human',
-                'title'  => 'Being Human',
+                'title'  => '3. Being Human',
                 'href'   => 'http://anth101.com/lessons/lesson3/',
                 'meta'   => false        
             );
@@ -521,8 +521,8 @@ function add_top_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_lesson',
                 'id'     => 'assumptions',
-                'title'  => 'Hidden Assumptions',
-                'href'   => 'http://anth101.com/lessons/lessons4/',
+                'title'  => '4. Hidden Assumptions',
+                'href'   => 'http://anth101.com/lessons/lesson4/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );  
@@ -531,7 +531,7 @@ function add_top_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_lesson',
                 'id'     => 'tools',
-                'title'  => 'Making & Living',
+                'title'  => '5. Making & Living',
                 'href'   => 'http://anth101.com/lessons/lesson5/',
                 'meta'   => false        
             );
@@ -542,7 +542,7 @@ function add_top_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_lesson',
                 'id'     => 'reality',
-                'title'  => '"Reality"',
+                'title'  => '6. "Reality"',
                 'href'   => 'http://anth101.com/lessons/lesson6/',
                 'meta'   => false        
             );
@@ -552,7 +552,7 @@ function add_top_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_lesson',
                 'id'     => 'hate',
-                'title'  => 'Why We Hate',
+                'title'  => '7. Why We Hate',
                 'href'   => 'http://anth101.com/lessons/lesson7/',
                 'meta'   => false        
             );
@@ -562,7 +562,7 @@ function add_top_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_lesson',
                 'id'     => 'tragedy',
-                'title'  => 'Tragedy of Our Times',
+                'title'  => '8. Tragedy of Our Times',
                 'href'   => 'http://anth101.com/lessons/lesson8/',
                 'meta'   => false        
             );
@@ -571,7 +571,7 @@ function add_top_link_to_admin_bar($admin_bar) {
              $args = array(
                 'parent' => 'the_lesson',
                 'id'     => 'hero',
-                'title'  => 'Becoming a Hero',
+                'title'  => '9. Becoming a Hero',
                 'href'   => 'http://anth101.com/lessons/lesson9/',
                 'meta'   => false        
             );
@@ -580,7 +580,7 @@ function add_top_link_to_admin_bar($admin_bar) {
              $args = array(
                 'parent' => 'the_lesson',
                 'id'     => 'we',
-                'title'  => 'We Make the World',
+                'title'  => '10. We Make the World',
                 'href'   => 'http://anth101.com/lessons/lesson10/',
                 'meta'   => false        
             );
@@ -606,8 +606,8 @@ function add_challenge_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_challenge',
                 'id'     => 'stranger',
-                'title'  => 'Talk to Strangers',
-                'href'   => 'http://anth101.com/challenges/challenge1/',
+                'title'  => '1. Talk to Strangers',
+                'href'   => 'http://anth101.com/challenge1/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );
@@ -616,8 +616,8 @@ function add_challenge_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_challenge',
                 'id'     => 'fieldwork',
-                'title'  => 'Fieldwork of the Familiar',
-                'href'   => 'http://anth101.com/challenges/challenge2/',
+                'title'  => '2. Fieldwork of the Familiar',
+                'href'   => 'http://anth101.com/challenge2/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );     
@@ -626,8 +626,8 @@ function add_challenge_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_challenge',
                 'id'     => 'days',
-                'title'  => '28 Day Challenge',
-                'href'   => 'http://anth101.com/challenges/challenge3/',
+                'title'  => '3. 28 Day Challenge',
+                'href'   => 'http://anth101.com/challenge3/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );  
@@ -636,8 +636,8 @@ function add_challenge_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_challenge',
                 'id'     => 'uncomfort',
-                'title'  => 'Get Uncomfortable',
-                'href'   => 'http://anth101.com/challenges/challenge4/',
+                'title'  => '4. Get Uncomfortable',
+                'href'   => 'http://anth101.com/challenge4/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );  
@@ -646,8 +646,8 @@ function add_challenge_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_challenge',
                 'id'     => 'unthing',
-                'title'  => 'UnThing Experiment',
-                'href'   => 'http://anth101.com/challenges/challenge5/',
+                'title'  => '5. UnThing Experiment',
+                'href'   => 'http://anth101.com/challenge5/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );   
@@ -657,8 +657,8 @@ function add_challenge_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_challenge',
                 'id'     => 'realization',
-                'title'  => 'Realize a Real-ization',
-                'href'   => 'http://anth101.com/challenges/challenge6/',
+                'title'  => '6. Realize a Real-ization',
+                'href'   => 'http://anth101.com/challenge6/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );  
@@ -667,8 +667,8 @@ function add_challenge_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_challenge',
                 'id'     => 'other',
-                'title'  => 'Other Encounter',
-                'href'   => 'http://anth101.com/challenges/challenge7/',
+                'title'  => '7. Other Encounter',
+                'href'   => 'http://anth101.com/challenge7/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );    
@@ -677,8 +677,8 @@ function add_challenge_link_to_admin_bar($admin_bar) {
             $args = array(
                 'parent' => 'the_challenge',
                 'id'     => 'hustuff',
-                'title'  => 'Humans of My Stuff',
-                'href'   => 'http://anth101.com/challenges/challenge8/',
+                'title'  => '8. Humans of My Stuff',
+                'href'   => 'http://anth101.com/challenge8/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );   
@@ -686,8 +686,8 @@ function add_challenge_link_to_admin_bar($admin_bar) {
              $args = array(
                 'parent' => 'the_challenge',
                 'id'     => 'uhero',
-                'title'  => 'Your Hero Story',
-                'href'   => 'http://anth101.com/challenges/challenge9/',
+                'title'  => '9. Your Hero Story',
+                'href'   => 'http://anth101.com/challenge9/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );  
@@ -695,8 +695,8 @@ function add_challenge_link_to_admin_bar($admin_bar) {
              $args = array(
                 'parent' => 'the_challenge',
                 'id'     => 'manifesto',
-                'title'  => 'Manifesto',
-                'href'   => 'http://anth101.com/challenges/challenge10/',
+                'title'  => '10. Manifesto',
+                'href'   => 'http://anth101.com/challenge10/',
                 'meta'   => false        
             );
             $admin_bar->add_node( $args );  
