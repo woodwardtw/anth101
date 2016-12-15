@@ -419,13 +419,13 @@ function my_admin_bar_render() {
 add_action( 'wp_before_admin_bar_render', 'my_admin_bar_render' );
 
 
-//TOOL BAR NEW
+//TOOL BAR NEW PLUS
 add_action( 'admin_bar_menu', 'toolbar_link_to_new', 949 );
 
 function toolbar_link_to_new( $wp_admin_bar ) {
 	$args = array(
 		'id'    => 'my_new',
-		'title' => '<i class="fa fa-plus fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">Accept a Challenge</div>',
+		'title' => '<i class="fa fa-plus fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">Complete a Challenge</div>',
 		'href'  => '/wp-admin/post-new.php',
 		'meta'  => array( 'class' => 'my-toolbar-icon' )
 	);
@@ -433,7 +433,7 @@ function toolbar_link_to_new( $wp_admin_bar ) {
 }
 
 
-//TOOL BAR FAVORITES
+//TOOL BAR FAVORITES HEART
 
 add_action( 'admin_bar_menu', 'toolbar_link_to_fav', 959 );
 
@@ -454,7 +454,7 @@ add_action( 'admin_bar_menu', 'toolbar_link_to_star', 969 );
 function toolbar_link_to_star( $wp_admin_bar ) {
 	$args = array(
 		'id'    => 'my_star',
-		'title' => '<i class="fa fa-star fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">Stars</div>',
+		'title' => '<i class="fa fa-star fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">Best Of</div>',
 		'href'  => '#',
 		'meta'  => array( 'class' => 'my-toolbar-icon' )
 	);
