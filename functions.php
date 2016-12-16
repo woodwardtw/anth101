@@ -19,7 +19,6 @@ function theme_enqueue_styles() {
 }
 
 
-
 function custom_post_type_personal() {
 
 // Set UI labels for Custom Post Type
@@ -180,7 +179,7 @@ add_filter( 'posts_where', 'cf_search_where' );
 
 
 /**
-THE LAND OF PURIFICATION -----------------------------------------------------------------------------
+*******************THE LAND OF PURIFICATION -----------------------------------------------------------------------------**********************************
 HIDE Posts from ppl who aren't the author or greater
 **/
 
@@ -738,3 +737,5 @@ function show_custom_admin_menu() {
 add_action( 'admin_head', 'show_custom_admin_menu' );
 // on frontend area
 add_action( 'wp_head', 'show_custom_admin_menu' );
+
+

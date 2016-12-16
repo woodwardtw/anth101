@@ -7567,6 +7567,20 @@ p {
 h2.entry-title {
   font-family: 90% "Open Sans Condensed", sans-serif; }
 
+.dummy {
+  margin-top: 100%; }
+
+.thumbnail {
+  position: absolute;
+  top: 15px;
+  bottom: 0;
+  left: 15px;
+  right: 0;
+  text-align: center;
+  padding-top: calc(50% - 30px);
+  background-color: #65AA55;
+  overflow: hidden; }
+
 .video-background {
   background: #000;
   position: fixed;

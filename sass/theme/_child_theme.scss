@@ -41,6 +41,24 @@ h2.entry-title {
 	font-family: 90% $post-title;	
 }
 
+//author page 
+
+.dummy {
+    margin-top: 100%;
+}
+.thumbnail {
+    position: absolute;
+    top: 15px;
+    bottom: 0;
+    left: 15px;
+    right: 0;
+    text-align:center;
+    padding-top:calc(50% - 30px);
+    background-color: $green;
+    overflow: hidden;
+}
+
+//front page video background
 .video-background {
   background: #000;
   position: fixed;
