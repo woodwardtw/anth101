@@ -415,6 +415,7 @@ function my_admin_bar_render() {
     $wp_admin_bar->remove_menu('site-name');
     $wp_admin_bar->remove_menu('customize');
     $wp_admin_bar->remove_menu('new-content');
+    $wp_admin_bar->remove_menu('wp-rest-api-cache-empty');
 
 }
 add_action( 'wp_before_admin_bar_render', 'my_admin_bar_render' );
@@ -433,6 +434,7 @@ function toolbar_link_to_new( $wp_admin_bar ) {
 		'id'    => 'my_new',
 		'title' => '<i class="fa fa-plus fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">Complete a Challenge</div>',
 		'href'  => '/wp-admin/post-new.php',
+		// press-this.php maybe 
 		'meta'  => array( 'class' => 'my-toolbar-icon' )
 	);
 	$wp_admin_bar->add_node( $args );
@@ -709,6 +711,32 @@ function add_challenge_link_to_admin_bar($admin_bar) {
                                    
 }
 
+ add_action( 'admin_bar_menu', 'add_top_link_to_admin_bar',999 );
+ 
+function add_sandwich_to_admin_bar($admin_bar) {
+         // add a parent item
+            $args = array(
+                'id'    => 'the_bars',
+				'title' => '<i class="fa fa-bars fa-3x" style="font-family:FontAwesome; font-size:1.8em;"></i><div class="full-view-menu">Lessons</div>',
+                'href'   => '#', // Showing how to add an external link
+                'meta'  => array( 'class' => 'my-toolbar-icon' )
+            );
+            $admin_bar->add_node( $args );
+             
+         // add a child item to our parent item 
+            $args = array(
+                'parent' => 'the_bars',
+                'id'     => 'test',
+                'title'  => 'test',
+                'href'   => 'http://anth101.com/lessons/lesson1/',
+                'meta'   => false        
+            );
+            $admin_bar->add_node( $args );
+
+}            
+
+ add_action( 'admin_bar_menu', 'add_sandwich_to_admin_bar',999 );
+
 
 //TOOL BAR - Prevent mobile hiding
 function show_custom_admin_menu() {
@@ -755,5 +783,3 @@ function get_assignment_category_number(){
 	$number = substr($name,0,$pos);
 	echo $number;
 }
-
-
