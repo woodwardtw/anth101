@@ -783,3 +783,10 @@ function get_assignment_category_number(){
 	$number = substr($name,0,$pos);
 	echo $number;
 }
+
+function get_post_background_img ($post) {
+	if ( $thumbnail_id = get_post_thumbnail_id($post) ) {
+        if ( $image_src = wp_get_attachment_image_src( $thumbnail_id, 'thumbnail' ) )
+            printf( ' style="background-image: url(%s);"', $image_src[0] );     
+    }
+}

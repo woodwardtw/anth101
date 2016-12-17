@@ -70,7 +70,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
                             <a href="<?php echo get_permalink();?>">
                                  <div class="col-md-3 col-sm-4 col-xs-6" id="assg_<?php get_assignment_category_number();?>">
                                     <div class="dummy"></div>
-                                    <div class="thumbnail" style="background-image: url(<?php get?>)"><?php get_assignment_category_number();?></div>
+                                    <div class="thumbnail" <?php get_post_background_img($post);?>)><?php get_assignment_category_number();?></div>
                                 </div>
                             </a>
                         <?php endwhile; ?>
