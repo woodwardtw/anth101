@@ -1,3 +1,14 @@
+//reorder assignments
+
+var main = document.getElementById( 'assignments' );
+
+[].map.call( main.children, Object ).sort( function ( a, b ) {
+    return +a.id.match( /\d+/ ) - +b.id.match( /\d+/ );
+}).forEach( function ( elem ) {
+    main.appendChild( elem );
+});
+
+
 // Find all YouTube videos
 var $allVideos = $("iframe[src^='//www.youtube.com']"),
 

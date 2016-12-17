@@ -14,11 +14,11 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array());
     wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . '/js/child-theme.min.js', array(), '0.1.0', true );
-    //wp_enqueue_script( 'child-understrap-video', get_stylesheet_directory_uri() . '/js/video-resize.js', array(), '0.1.0', true );
+    wp_enqueue_script( 'anth-scripts', get_stylesheet_directory_uri() . '/js/anth.js', array(), '0.1.0', true );
 
 }
 
-
+/*
 function custom_post_type_personal() {
 
 // Set UI labels for Custom Post Type
@@ -51,6 +51,7 @@ function custom_post_type_personal() {
 		* Parent and child items. A non-hierarchical CPT
 		* is like Posts.
 		*/	
+/*		
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
@@ -74,35 +75,36 @@ function custom_post_type_personal() {
 
 }	
 add_action( 'init', 'custom_post_type_personal', 0 );
+*/
 
-function custom_post_type_team() {
+function custom_post_type_tribe() {
 
 // Set UI labels for Custom Post Type
 	$labels = array(
-		'name'                => _x( 'Team', 'Post Type General Name', 'anth' ),
-		'singular_name'       => _x( 'Team', 'Post Type Singular Name', 'anth' ),
-		'menu_name'           => __( 'Teams', 'anth' ),
-		'all_items'           => __( 'All Teams', 'blackout' ),
-		'view_item'           => __( 'View Team', 'blackout' ),
-		'add_new_item'        => __( 'Add New Team', 'blackout' ),
+		'name'                => _x( 'Tribe', 'Post Type General Name', 'anth' ),
+		'singular_name'       => _x( 'Tribe', 'Post Type Singular Name', 'anth' ),
+		'menu_name'           => __( 'Tribes', 'anth' ),
+		'all_items'           => __( 'All Tribes', 'blackout' ),
+		'view_item'           => __( 'View Tribe', 'blackout' ),
+		'add_new_item'        => __( 'Add New Tribe', 'blackout' ),
 		'add_new'             => __( 'Add New', 'blackout' ),
-		'edit_item'           => __( 'Edit Team', 'blackout' ),
-		'update_item'         => __( 'Update Team', 'blackout' ),
-		'search_items'        => __( 'Search Team', 'blackout' ),
-		'not_found'           => __( 'Team Not Found', 'blackout' ),
+		'edit_item'           => __( 'Edit Tribe', 'blackout' ),
+		'update_item'         => __( 'Update Tribe', 'blackout' ),
+		'search_items'        => __( 'Search Tribes', 'blackout' ),
+		'not_found'           => __( 'Tribe Not Found', 'blackout' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'blackout' ),
 	);
 	
 // Set other options for Custom Post Type
 	
 	$args = array(
-		'label'               => __( 'Teams', 'blackout' ),
-		'description'         => __( 'Team info', 'blackout' ),
+		'label'               => __( 'Tribes', 'blackout' ),
+		'description'         => __( 'Tribe info', 'blackout' ),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
-		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', ),
+		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', ),
 		// You can associate this CPT with a taxonomy or custom taxonomy. 
-		'taxonomies'          => array( 'scene' ),
+		'taxonomies'          => array( 'tribe' ),
 		/* A hierarchical CPT is like Pages and can have
 		* Parent and child items. A non-hierarchical CPT
 		* is like Posts.
@@ -125,10 +127,10 @@ function custom_post_type_team() {
   		'menu_icon' => 'dashicons-groups',
 	);
 // Registering your Custom Post Type
-	register_post_type( 'Teams', $args );
+	register_post_type( 'Tribe', $args );
 
 }	
-add_action( 'init', 'custom_post_type_team', 0 );
+add_action( 'init', 'custom_post_type_tribe', 0 );
 
 /**  set custom field stu_id if empty **/
 
@@ -270,11 +272,11 @@ function add_user_id_metafield( $post_id ) {
 }
 add_action( 'save_post', 'add_user_id_metafield' );
 
-//make pagination work for teams
+//make pagination work for tribes
 
 add_filter( 'redirect_canonical','custom_disable_redirect_canonical' ); 
 function custom_disable_redirect_canonical( $redirect_url ){
-    if ( is_singular('teams') ) $redirect_url = false;
+    if ( is_singular('tribes') ) $redirect_url = false;
     return $redirect_url;
 }
 
@@ -417,6 +419,11 @@ function my_admin_bar_render() {
 }
 add_action( 'wp_before_admin_bar_render', 'my_admin_bar_render' );
 
+function wpdocs_enqueue_custom_admin_style() {
+        wp_register_style( 'fa_wp_admin_css', get_stylesheet_directory_uri() . '/css/font-awesome.min.css', false, '1.0.0' );
+        wp_enqueue_style( 'fa_wp_admin_css' );
+}
+add_action( 'admin_enqueue_scripts', 'wpdocs_enqueue_custom_admin_style' );
 
 //TOOL BAR NEW PLUS
 add_action( 'admin_bar_menu', 'toolbar_link_to_new', 949 );
@@ -737,5 +744,16 @@ function show_custom_admin_menu() {
 add_action( 'admin_head', 'show_custom_admin_menu' );
 // on frontend area
 add_action( 'wp_head', 'show_custom_admin_menu' );
+
+//AUTHOR PAGE 
+
+function get_assignment_category_number(){
+	$cats = get_the_category();
+	$name = $cats[0]->name;
+	$findme   = '.';
+	$pos = strpos($name, $findme);
+	$number = substr($name,0,$pos);
+	echo $number;
+}
 
 

@@ -51,7 +51,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
                         <?php endif; ?>
 
                         <?php if (count_user_posts( $curauth->ID ) >0 ) {
-                            echo '<dt>Posts:</dt><dd> ' . count_user_posts( $curauth->ID ) . '</dd>';
+                            echo '<dt>Challenges Met:</dt><dd> ' . (count_user_posts( $curauth->ID )+1) . '</dd>';
                         } else {
                             echo ' No posts yet.';
                         };?>
@@ -59,16 +59,20 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
                     </dl>                    
 
                 </header><!-- .page-header -->
+            
+                        
                 <h2>Progress</h2>
                 <div class="container">
-                    <div class="row">                 
+                    <div class="row" id="assignments">                              
                     <!-- The Loop -->
                     <?php if ( have_posts() ) : ?>
                         <?php while ( have_posts() ) : the_post(); ?>
-                             <div class="col-md-3 col-sm-4 col-xs-6">
-                                <div class="dummy"></div>
-                                <div class="thumbnail"></div>
-                            </div>
+                            <a href="<?php echo get_permalink();?>">
+                                 <div class="col-md-3 col-sm-4 col-xs-6" id="assg_<?php get_assignment_category_number();?>">
+                                    <div class="dummy"></div>
+                                    <div class="thumbnail" style="background-image: url(<?php get?>)"><?php get_assignment_category_number();?></div>
+                                </div>
+                            </a>
                         <?php endwhile; ?>
 
                     <?php else : ?>
@@ -80,6 +84,39 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
                 </div>
                     <!-- End Loop -->
 
+            <?php 
+            //get the categories form the Student Submissions parent category and put them in an array
+            $challenge_names = get_categories( array( 'child_of' => 293,'hide_empty' => false, 'orderby' => 'slug' ) );                
+            $challenge_array =[];
+            for($i = 0; $i <count($challenge_names); $i++) {
+                echo $challenge_names[$i]->cat_name . '<br>';
+                array_push($challenge_array, $challenge_names[$i]->cat_name);
+            }
+            var_dump($challenge_array);
+
+            $args = array( 
+                'author' => $curauth->ID,                
+                );
+            $the_query = new WP_Query( $args );
+            // The Loop
+            if ( $the_query->have_posts() ) :
+
+            while ( $the_query->have_posts() ) : $the_query->the_post();
+              // Do Stuff
+             //var_dump(get_the_category($post->ID)[0]->name);             
+             $challenges = 0;
+             if (get_the_category($post->ID)[0]->name === "1. Talking to Strangers"){
+                 echo "<div>4. Getting Uncomfortable – Thick Descriptions</div>";
+                 $challenges = 1;
+                var_dump($challenges);
+                 }
+
+            endwhile;
+            endif;
+            // Reset Post Data
+            wp_reset_postdata();
+            ?>
+                        
 
             </main><!-- #main -->
 
