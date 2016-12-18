@@ -43,6 +43,15 @@ h2.entry-title {
 
 //author page 
 
+.author-header .author-avatar {
+  display: inline;
+  margin-bottom: 6px;
+}
+.author-header #author-name {
+  display: inline;
+  margin-left: 12px;
+}
+
 .square {
     float:left;
     position: relative;

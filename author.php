@@ -51,7 +51,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
                         <?php endif; ?>
 
                         <?php if (count_user_posts( $curauth->ID ) >0 ) {
-                            echo '<dt>Challenges Met:</dt><dd> ' . (count_user_posts( $curauth->ID )+1) . '</dd>';
+                            echo '<dt>Challenges Met:</dt><dd> ' . (count_user_posts( $curauth->ID )) . '</dd>';
                         } else {
                             echo ' No posts yet.';
                         };?>
