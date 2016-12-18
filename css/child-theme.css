@@ -7365,19 +7365,37 @@ p {
 h2.entry-title {
   font-family: 90% "Open Sans Condensed", sans-serif; }
 
-.dummy {
-  margin-top: 100%; }
-
-.thumbnail {
-  position: absolute;
-  top: 15px;
-  bottom: 0;
-  left: 15px;
-  right: 0;
-  text-align: center;
-  padding-top: calc(50% - 30px);
+.square {
+  float: left;
+  position: relative;
+  width: 16%;
+  padding-bottom: 16%;
+  /* = width for a 1:1 aspect ratio */
+  margin: 1.66%;
   background-color: #65AA55;
   overflow: hidden; }
+
+.content {
+  position: absolute;
+  height: 90%;
+  /* = 100% - 2*5% padding */
+  width: 90%;
+  /* = 100% - 2*5% padding */
+  padding: 5%; }
+
+.table {
+  display: table;
+  width: 100%;
+  height: 100%; }
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; }
+
+.assignment_id {
+  font-size: 8vw;
+  color: #fff; }
 
 .video-background {
   background: #000;

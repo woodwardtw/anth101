@@ -62,27 +62,34 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
             
                         
                 <h2>Progress</h2>
-                <div class="container">
-                    <div class="row" id="assignments">                              
-                    <!-- The Loop -->
-                    <?php if ( have_posts() ) : ?>
+                
+
+
+<!-- 3rd row responsive images in background with centered content -->
+<div class="row">
+                 <?php if ( have_posts() ) : ?>
                         <?php while ( have_posts() ) : the_post(); ?>
-                            <a href="<?php echo get_permalink();?>">
-                                 <div class="col-md-3 col-sm-4 col-xs-6" id="assg_<?php get_assignment_category_number();?>">
-                                    <div class="dummy"></div>
-                                    <div class="thumbnail" <?php get_post_background_img($post);?>)><?php get_assignment_category_number();?></div>
+
+                            <div class="square bg img1">
+                               <div class="content">
+                                    <div class="table">
+                                        <div class="table-cell">
+                                            <span class="assignment_id"><?php get_assignment_category_number();?></span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </a>
-                        <?php endwhile; ?>
+                            </div>
+                     </a>
+                    <?php endwhile; ?>
 
                     <?php else : ?>
 
                         <?php get_template_part( 'loop-templates/content', 'none' ); ?>
 
                     <?php endif; ?>
-                    </div>
-                </div>
-                    <!-- End Loop -->
+                    <!-- End Loop -->       
+</div>
+            
 
             <?php 
             //get the categories form the Student Submissions parent category and put them in an array
@@ -119,6 +126,8 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
                         
 
             </main><!-- #main -->
+
+
 
             <!-- The pagination component -->
             <?php understrap_pagination(); ?>
