@@ -71,6 +71,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 
                  <?php if ( have_posts() ) : ?>
                         <?php while ( have_posts() ) : the_post(); ?>
+                        <a href="<?php the_permalink();?>">
                             <div class="square bg img1" <?php get_post_background_img ($post);?>>
                                <div class="content">
                                     <div class="table" id="assignments">
