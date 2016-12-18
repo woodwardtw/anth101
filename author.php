@@ -91,20 +91,50 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
                     <?php endif; ?>
                     <!-- End Loop -->       
                 </div>
-            
+                <h2>New Loop</h2>
+                <?php 
+                $a_args = array(
+                    'post_type'  => 'post',
+                    'orderby' => 'ID',
+                    'order'   => 'ASC', 
+                    'author_name' => 'root',              
+                );
+               $a_query = new WP_Query( $a_args );
+               //var_dump($a_query);
+                // The Loop
+                if ( $a_query->have_posts() ) :
+                while ( $a_query->have_posts() ) : $a_query->the_post();
+                  echo the_title() . '<br>';
 
+                endwhile;
+                endif;
+                // Reset Post Data
+                wp_reset_postdata();
+                ?>
+
+
+                <h2>cat list</h2>
             <?php 
             //get the categories form the Student Submissions parent category and put them in an array
             $challenge_names = get_categories( array( 'child_of' => 293,'hide_empty' => false, 'orderby' => 'slug' ) );                
             $challenge_array =[];
+            $challenge_cat_id_array =[];
             for($i = 0; $i <count($challenge_names); $i++) {
                 echo $challenge_names[$i]->cat_name . '<br>';
+                echo $challenge_names[$i]->cat_ID . '<br>';                
                 array_push($challenge_array, $challenge_names[$i]->cat_name);
+                array_push($challenge_cat_id_array, $challenge_names[$i]->cat_ID);
             }
             var_dump($challenge_array);
 
+
+
+            echo '<h2>OTHER STUFF</h2>';
+
+
             $args = array( 
-                'author' => $curauth->ID,                
+                'author' => $curauth->ID,   
+                'category__in' => $challenge_cat_id_array,             
                 );
             $the_query = new WP_Query( $args );
             // The Loop
@@ -114,11 +144,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
               // Do Stuff
              //var_dump(get_the_category($post->ID)[0]->name);             
              $challenges = 0;
-             if (get_the_category($post->ID)[0]->name === "1. Talking to Strangers"){
-                 echo "<div>4. Getting Uncomfortable – Thick Descriptions</div>";
-                 $challenges = 1;
-                var_dump($challenges);
-                 }
+             
 
             endwhile;
             endif;
