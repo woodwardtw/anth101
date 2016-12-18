@@ -53,7 +53,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
                         <?php if (count_user_posts( $curauth->ID ) >0 ) {
                             echo '<dt>Challenges Met:</dt><dd> ' . (count_user_posts( $curauth->ID )) . '</dd>';
                         } else {
-                            echo ' No posts yet.';
+                            echo ' No challenges yet.';
                         };?>
 
                     </dl>                    
@@ -66,14 +66,15 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 
 
 <!-- 3rd row responsive images in background with centered content -->
-<div class="row">
+                <div class="row">
+
+
                  <?php if ( have_posts() ) : ?>
                         <?php while ( have_posts() ) : the_post(); ?>
-
-                            <div class="square bg img1">
+                            <div class="square bg img1" <?php get_post_background_img ($post);?>>
                                <div class="content">
-                                    <div class="table">
-                                        <div class="table-cell">
+                                    <div class="table" id="assignments">
+                                        <div class="table-cell" id="assg_<?php get_assignment_category_number();?>">
                                             <span class="assignment_id"><?php get_assignment_category_number();?></span>
                                         </div>
                                     </div>
@@ -88,7 +89,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 
                     <?php endif; ?>
                     <!-- End Loop -->       
-</div>
+                </div>
             
 
             <?php 

@@ -8,7 +8,7 @@ var main = document.getElementById( 'assignments' );
     main.appendChild( elem );
 });
 
-
+(function($) {
 // Find all YouTube videos
 var $allVideos = $("iframe[src^='//www.youtube.com']"),
 
@@ -28,7 +28,7 @@ $allVideos.each(function() {
 });
 
 // When the window is resized
-$(window).resize(function() {
+jQuery(window).resize(function() {
 
   var newWidth = $fluidEl.width();
 
@@ -44,3 +44,4 @@ $(window).resize(function() {
 
 // Kick off one resize to fix all videos on page load
 }).resize();
+})( jQuery );

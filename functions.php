@@ -421,7 +421,7 @@ function my_admin_bar_render() {
 add_action( 'wp_before_admin_bar_render', 'my_admin_bar_render' );
 
 function wpdocs_enqueue_custom_admin_style() {
-        wp_register_style( 'fa_wp_admin_css', get_stylesheet_directory_uri() . '/css/font-awesome.min.css', false, '1.0.0' );
+        wp_register_style( 'fa_wp_admin_css', get_stylesheet_directory_uri() . '/css/font-awesome.min.css', true, '1.0.0' );
         wp_enqueue_style( 'fa_wp_admin_css' );
 }
 add_action( 'admin_enqueue_scripts', 'wpdocs_enqueue_custom_admin_style' );

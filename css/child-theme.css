@@ -7381,7 +7381,8 @@ h2.entry-title {
   /* = width for a 1:1 aspect ratio */
   margin: 1.66%;
   background-color: #65AA55;
-  overflow: hidden; }
+  overflow: hidden;
+  background-size: cover; }
 
 .content {
   position: absolute;
